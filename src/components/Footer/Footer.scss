@@ -1,0 +1,72 @@
+footer {
+  background: var(--Main-color, #818eea);
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 112px 0 48px 0;
+    color: #fff;
+    &__email {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      h1 {
+        font-size: 36px;
+        font-weight: 600;
+        line-height: 44px;
+        letter-spacing: -1.5px;
+      }
+      p {
+        font-size: 14px;
+        font-weight: 400;
+        letter-spacing: -0.3px;
+      }
+      form {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 16px;
+        border-radius: 8px;
+        border: 0.5px solid var(--Background-color, #fff);
+        height: 40px;
+        input {
+          width: 85%;
+          background: none;
+          color: var(--Background-color, #fff);
+          font-size: 14px;
+          font-weight: 400;
+          letter-spacing: -0.3px;
+          border: none;
+          &::placeholder {
+            color: #fff;
+            opacity: 0.7;
+          }
+        }
+        button {
+          color: var(--Background-color, #fff);
+          font-feature-settings: "clig" off, "liga" off;
+          font-size: 14px;
+          font-weight: 700;
+          letter-spacing: -0.3px;
+          border: none;
+          background: none;
+        }
+      }
+    }
+    &__nav {
+      h2 {
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 22px;
+        letter-spacing: -0.4px;
+        margin-bottom: 21px;
+      }
+      p {
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 26px;
+        letter-spacing: -0.2px;
+        opacity: 0.5;
+      }
+    }
+  }
+}

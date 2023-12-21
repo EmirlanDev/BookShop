@@ -1,7 +1,7 @@
 import React from "react";
 import Home from "../pages/Home/Home";
 import { Route, Routes } from "react-router-dom";
-import AddProduct from "../components/AddProduct/AddProduct";
+import AddProduct from "../components/Product/AddProduct";
 
 const MianRoutes = () => {
   const PUBLIC = [

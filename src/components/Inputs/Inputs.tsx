@@ -1,15 +1,11 @@
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import axios from "axios";
 import { API } from "../../Api";
+import { actionType } from "../../redux/actionType";
 
 interface myObj {
-  name: string;
-  by: string;
-  price: any;
-  genres: string;
-}
-
-interface Product {
+  image: string;
   name: string;
   by: string;
   price: any;
@@ -17,6 +13,7 @@ interface Product {
 }
 
 const init: myObj = {
+  image: "",
   name: "",
   by: "",
   price: "",
@@ -25,10 +22,9 @@ const init: myObj = {
 
 const Inputs: React.FC = () => {
   const [product, setProduct] = useState(init);
+  const dispatch = useDispatch();
 
   function handleInp(e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) {
-    console.log(e.target.value);
-
     if (e.target.name === "price") {
       let obj: myObj = {
         ...product,
@@ -44,13 +40,28 @@ const Inputs: React.FC = () => {
     }
   }
 
-  async function createProduct(newProduct: Product) {
+  async function createProduct(newProduct: myObj) {
     try {
       await axios.post(API, newProduct);
     } catch (error) {
       console.log("createError");
     }
   }
+
+  async function getProduct() {
+    try {
+      let res = await axios(API);
+      console.log(res);
+
+      dispatch({ type: actionType.ADD_PRODUCT, payload: res });
+    } catch (error) {
+      console.log("getError");
+    }
+  }
+
+  useEffect(() => {
+    getProduct();
+  }, [createProduct]);
 
   return (
     <div className="form">
@@ -71,6 +82,14 @@ const Inputs: React.FC = () => {
         value={product.price}
         name="price"
         type="number"
+      />
+
+      <label>Product image</label>
+      <input
+        onChange={handleInp}
+        value={product.image}
+        name="image"
+        type="text"
       />
 
       <label>Product genres</label>

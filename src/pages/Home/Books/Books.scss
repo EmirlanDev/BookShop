@@ -1,0 +1,22 @@
+#books {
+  .books {
+    padding: 112px 0 24px 0;
+    &__title {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      h1 {
+        color: var(--Text-color, #19272e);
+        font-size: 48px;
+        font-weight: 500;
+        line-height: 57.6px;
+      }
+      p {
+        color: var(--Main-color, #818eea);
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 21.6px;
+      }
+    }
+  }
+}

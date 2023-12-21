@@ -1,7 +1,7 @@
 import React from "react";
 import Inputs from "../Inputs/Inputs";
 
-const AddProduct = () => {
+const AddProduct: React.FC = () => {
   return (
     <section id="add">
       <div className="container">

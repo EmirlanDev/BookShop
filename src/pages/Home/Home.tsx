@@ -1,11 +1,18 @@
-import React from 'react';
+import React from "react";
+import Books from "./Books/Books";
+import Genres from "./Genres/Genres";
+import HomeHero from "./HomeHero/HomeHero";
+import NewBooks from "./NewBooks/NewBooks";
 
-const Home = () => {
-    return (
-        <div>
-            <h1>Home</h1>
-        </div>
-    );
+const Home: React.FC = () => {
+  return (
+    <div>
+      <HomeHero />
+      <Genres />
+      <NewBooks />
+      <Books />
+    </div>
+  );
 };
 
 export default Home;

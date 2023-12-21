@@ -2,7 +2,7 @@ import { actionType, MyAction } from "../actionType";
 
 interface MyProduct {
   id: number;
-  name: string;
+  title: string;
   by: string;
   price: string | number;
   genres: string;

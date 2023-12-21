@@ -1,12 +1,10 @@
 import React, { ChangeEvent, useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
 import axios from "axios";
 import { API } from "../../Api";
-import { actionType } from "../../redux/actionType";
 
 interface myObj {
   image: string;
-  name: string;
+  title: string;
   by: string;
   price: any;
   genres: string;
@@ -14,7 +12,7 @@ interface myObj {
 
 const init: myObj = {
   image: "",
-  name: "",
+  title: "",
   by: "",
   price: "",
   genres: "",
@@ -22,7 +20,6 @@ const init: myObj = {
 
 const Inputs: React.FC = () => {
   const [product, setProduct] = useState(init);
-  const dispatch = useDispatch();
 
   function handleInp(e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) {
     if (e.target.name === "price") {
@@ -48,28 +45,13 @@ const Inputs: React.FC = () => {
     }
   }
 
-  async function getProduct() {
-    try {
-      let res = await axios(API);
-      console.log(res);
-
-      dispatch({ type: actionType.ADD_PRODUCT, payload: res });
-    } catch (error) {
-      console.log("getError");
-    }
-  }
-
-  useEffect(() => {
-    getProduct();
-  }, [createProduct]);
-
   return (
     <div className="form">
       <label>Product name</label>
       <input
         onChange={handleInp}
-        value={product.name}
-        name="name"
+        value={product.title}
+        name="title"
         type="text"
       />
 

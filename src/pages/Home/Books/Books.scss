@@ -1,6 +1,6 @@
 #books {
+  padding: 112px 0 24px 0;
   .books {
-    padding: 112px 0 24px 0;
     &__title {
       display: flex;
       align-items: end;
@@ -16,6 +16,72 @@
         font-size: 18px;
         font-weight: 500;
         line-height: 21.6px;
+      }
+    }
+  }
+  .carts {
+    display: flex;
+    overflow-x: scroll;
+    padding-top: 64px;
+    gap: 40px;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding-left: 45px;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    &__cart {
+      max-width: 200px;
+      position: relative;
+      height: 400px;
+      &__img {
+        height: 300px;
+        width: 200px;
+        img {
+          width: 200px;
+          height: 300px;
+          object-fit: cover;
+          border-radius: 8px;
+        }
+      }
+      h1 {
+        color: var(--Text-color, #19272e);
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 21.6px;
+        margin: 8px 0 4px 0;
+      }
+      p {
+        color: var(--Text-color, #19272e);
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 22.4px;
+        opacity: 0.7;
+      }
+      &__btns {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 10px;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        button {
+          width: 30px;
+          height: 30px;
+          font-size: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 5px;
+          color: #fff;
+          border: none;
+          &:first-child {
+            background: rgb(229, 46, 46);
+          }
+          &:last-child {
+            background: rgb(22, 171, 22);
+          }
+        }
       }
     }
   }

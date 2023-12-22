@@ -16,7 +16,6 @@ const Books = () => {
   async function getProduct() {
     try {
       let res = await axios(API);
-      console.log(res);
       dispatch({ type: actionType.ADD_PRODUCT, payload: res });
     } catch (error) {
       console.log("getError");

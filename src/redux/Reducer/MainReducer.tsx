@@ -28,7 +28,7 @@ export const MainReducer = (
     case actionType.ADD_PRODUCT:
       return { ...state, product: action.payload.data };
     case actionType.GET_ONE_PRODUCT:
-      return { ...state, oneProduct: action.payload.data };
+      return { ...state, oneProduct: action.payload };
     default:
       return state;
   }

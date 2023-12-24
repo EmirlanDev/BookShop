@@ -9,10 +9,6 @@ import { MdDelete } from "react-icons/md";
 import { RiEditFill } from "react-icons/ri";
 import { deleteProduct } from "../../../helpers/help";
 import { useNavigate } from "react-router-dom";
-import {
-  ProductContextType,
-  useProductContext,
-} from "./../../../context/ProductContext";
 
 const Books = () => {
   const { product } = useSelector((s: RootState) => s);

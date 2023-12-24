@@ -6,23 +6,26 @@
       text-align: center;
       font-size: 48px;
       font-weight: 500;
-      line-height: 57.6px; 
-      margin-bottom: 64px; 
+      line-height: 57.6px;
+      margin-bottom: 64px;
     }
     &__carts {
       display: flex;
       justify-content: center;
       gap: 64px;
       overflow-x: scroll;
-      &::-webkit-scrollbar{
+
+      &::-webkit-scrollbar {
         display: none;
       }
-      &__cart { 
-        &:first-child{
-            margin-top: 26px;
+      &__cart {
+        width: 200px;
+
+        &:first-child {
+          margin-top: 26px;
         }
-        &:last-child{
-            margin-top: 48px;
+        &:last-child {
+          margin-top: 48px;
         }
         &__img {
           width: 200px;

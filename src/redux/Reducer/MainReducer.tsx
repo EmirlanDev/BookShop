@@ -7,14 +7,17 @@ interface MyProduct {
   price: string | number;
   genres: string;
   image: string;
+  description: string;
 }
 
 interface MyState {
   product: MyProduct[];
+  oneProduct: MyProduct[];
 }
 
 const initialState: MyState = {
   product: [],
+  oneProduct: [],
 };
 
 export const MainReducer = (
@@ -24,6 +27,8 @@ export const MainReducer = (
   switch (action.type) {
     case actionType.ADD_PRODUCT:
       return { ...state, product: action.payload.data };
+    case actionType.GET_ONE_PRODUCT:
+      return { ...state, oneProduct: action.payload.data };
     default:
       return state;
   }

@@ -13,7 +13,7 @@ const About: React.FC = () => {
               We believe that books have the power to change lives, and we're
               dedicated to helping our customers find the perfect book for them.
               Whether you're looking for an escape from reality, an educational
-              read, or a book to inspire you, we've got you covered. Thank you
+              read, or a book to inspire you, we've got you covered. <br/> Thank you
               for choosing to shop with us. We look forward to helping you
               discover your next favorite book! 
             </p>

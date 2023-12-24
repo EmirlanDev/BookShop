@@ -8,3 +8,5 @@ export async function deleteProduct(id: number) {
     console.log("deleteError");
   }
 }
+
+

@@ -8,10 +8,12 @@ import { useEffect } from "react";
 import { MdDelete } from "react-icons/md";
 import { RiEditFill } from "react-icons/ri";
 import { deleteProduct } from "../../../helpers/help";
+import { useNavigate } from "react-router-dom";
 
 const Books = () => {
   const { product } = useSelector((s: RootState) => s);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   async function getProduct() {
     try {
@@ -26,26 +28,40 @@ const Books = () => {
     getProduct();
   }, []);
 
+  async function getOneProduct(id: number) {
+    try {
+      let res = await axios(`${API}/${id}`);
+      dispatch({ type: actionType.GET_ONE_PRODUCT, payload: res });
+    } catch (error) {
+      console.log("getOneProductError");
+    }
+  }
+
   return (
     <section id="books">
       <div className="container">
         <div className="books">
           <div className="books__title">
             <h1>Books</h1>
-            <p>View all</p>
+            <p onClick={() => navigate("/allBooks")}>View all</p>
           </div>
         </div>
       </div>
       <div className="carts">
         {product
           ? product.map((el) => (
-              <div className="carts__cart">
+              <div
+                onClick={() => {
+                  getOneProduct(el.id);
+                  navigate(`/detail/${el.id}`)
+                }}
+                className="carts__cart">
                 <div className="carts__cart__img">
                   <img src={el.image} alt="Product Image" />
                 </div>
                 <h1>{el.title}</h1>
-                <p>{el.by}</p>
-                <div className="carts__cart__btns">
+                <p>by {el.by}</p>
+                <div className="carts__cart__btns n">
                   <button onClick={() => deleteProduct(el.id)}>
                     <MdDelete />
                   </button>

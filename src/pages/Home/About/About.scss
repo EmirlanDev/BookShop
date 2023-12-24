@@ -1,0 +1,24 @@
+#about {
+  padding: 112px 0;
+  .about {
+    h1 {
+      color: var(--Text-color, #19272e);
+      text-align: center;
+      font-size: 48px;
+      font-weight: 500;
+      line-height: 57.6px;
+    }
+    &__block {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      p {
+        width: 42%;
+        color: var(--Text-color, #19272e);
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 25.2px;
+      }
+    }
+  }
+}

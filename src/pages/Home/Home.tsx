@@ -1,4 +1,3 @@
-import React from "react";
 import Books from "./Books/Books";
 import Genres from "./Genres/Genres";
 import HomeHero from "./HomeHero/HomeHero";
@@ -12,7 +11,7 @@ const Home: React.FC = () => {
       <Genres />
       <NewBooks />
       <Books />
-      <About/>
+      <About />
     </div>
   );
 };

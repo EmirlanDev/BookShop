@@ -1,4 +1,4 @@
-import React from "react";
+import { useNavigate } from "react-router-dom";
 
 // @ts-ignore
 import gen1 from "../../../images/gen1.png";
@@ -14,13 +14,14 @@ import gen5 from "../../../images/gen5.png";
 import gen6 from "../../../images/gen6.png";
 
 const Genres: React.FC = () => {
+  const navigate = useNavigate();
   return (
     <section id="genres">
       <div className="container">
         <div className="genres">
           <div className="genres__title">
             <h1>Genres</h1>
-            <p>View all</p>
+            <p onClick={() => navigate("/allBooks")}>View all</p>
           </div>
           <div className="genres__carts">
             <div className="genres__carts__cart">
@@ -29,23 +30,23 @@ const Genres: React.FC = () => {
             </div>
             <div className="genres__carts__cart">
               <img src={gen2} alt="gen2" />
-              <p>Sci-Fi</p>
+              <p>For kids</p>
             </div>
             <div className="genres__carts__cart">
               <img src={gen3} alt="gen3" />
-              <p>Sci-Fi</p>
+              <p>Psychology</p>
             </div>
             <div className="genres__carts__cart">
               <img src={gen4} alt="gen4" />
-              <p>Sci-Fi</p>
+              <p>Romantic</p>
             </div>
             <div className="genres__carts__cart">
               <img src={gen5} alt="gen5" />
-              <p>Sci-Fi</p>
+              <p>Detective</p>
             </div>
             <div className="genres__carts__cart">
               <img src={gen6} alt="gen6" />
-              <p>Sci-Fi</p>
+              <p>Finance</p>
             </div>
           </div>
         </div>

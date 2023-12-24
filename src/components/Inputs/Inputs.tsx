@@ -8,6 +8,7 @@ interface myObj {
   by: string;
   price: any;
   genres: string;
+  description: string;
 }
 
 const init: myObj = {
@@ -16,6 +17,7 @@ const init: myObj = {
   by: "",
   price: "",
   genres: "",
+  description: "",
 };
 
 const Inputs: React.FC = () => {
@@ -74,9 +76,16 @@ const Inputs: React.FC = () => {
         type="text"
       />
 
+      <label>Product Description</label>
+      <input
+        onChange={handleInp}
+        value={product.description}
+        name="description"
+        type="text"
+      />
+
       <label>Product genres</label>
       <select onChange={(e) => handleInp(e)} name="genres">
-        <option value={"Autographed Books"}>Autographed Books</option>
         <option value={"Sci-Fi"}>Sci-Fi</option>
         <option value={"For kids"}>For kids</option>
         <option value={"For teenagers"}>For teenagers</option>
@@ -94,8 +103,7 @@ const Inputs: React.FC = () => {
         onClick={() => {
           createProduct(product);
           setProduct(init);
-        }}
-      >
+        }}>
         Create
       </button>
     </div>

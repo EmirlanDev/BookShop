@@ -38,11 +38,13 @@
       &:hover {
         .n {
           display: flex;
+          z-index: 5;
         }
       }
       &__img {
         height: 300px;
         width: 200px;
+        cursor: pointer;
         img {
           width: 200px;
           height: 300px;
@@ -88,6 +90,7 @@
           border-radius: 5px;
           color: #fff;
           border: none;
+          cursor: pointer;
           &:first-child {
             background: rgb(229, 46, 46);
           }

@@ -1,39 +1,17 @@
-import axios from "axios";
-import { useSelector } from "react-redux";
-import { actionType } from "../../../redux/actionType";
-import { RootState } from "../../../redux/store";
-import { useDispatch } from "react-redux";
-import { API } from "./../../../Api";
 import { useEffect } from "react";
 import { MdDelete } from "react-icons/md";
 import { RiEditFill } from "react-icons/ri";
-import { deleteProduct } from "../../../helpers/help";
 import { useNavigate } from "react-router-dom";
+import {
+  ProductContextInterfase,
+  useProductContext,
+} from "../../../context/ProductContext";
 
 const Books = () => {
-  const { product } = useSelector((s: RootState) => s);
-  const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // const { getOneProduct }: ProductContextType = useProductContext();
-
-  async function getProduct() {
-    try {
-      let res = await axios(API);
-      dispatch({ type: actionType.ADD_PRODUCT, payload: res });
-    } catch (error) {
-      console.log("getError");
-    }
-  }
-
-  async function getOneProduct(id: number): Promise<void> {
-    try {
-      let res = await axios(`${API}/${id}`);
-      dispatch({ type: actionType.GET_ONE_PRODUCT, payload: res });
-    } catch (error) {
-      console.log("getOneProductError");
-    }
-  }
+  const { getProduct, deleteProduct, product }: ProductContextInterfase | any =
+    useProductContext();
 
   useEffect(() => {
     getProduct();
@@ -51,19 +29,30 @@ const Books = () => {
       </div>
       <div className="carts">
         {product
-          ? product.map((el) => (
-              <div
-                onClick={() => {
-                  navigate(`/detail/${el.id}`);
-                  getOneProduct(el.id);
-                }}
-                className="carts__cart"
-              >
+          ? product.map((el: any) => (
+              <div className="carts__cart">
                 <div className="carts__cart__img">
-                  <img src={el.image} alt="Product Image" />
+                  <img
+                    onClick={() => {
+                      navigate(`/detail/${el.id}`);
+                    }}
+                    src={el.image}
+                    alt="Product Image"
+                  />
                 </div>
-                <h1>{el.title}</h1>
-                <p>by {el.by}</p>
+                <h1
+                  onClick={() => {
+                    navigate(`/detail/${el.id}`);
+                  }}>
+                  {el.title}
+                </h1>
+                <p
+                  style={{ display: el.by ? "" : "none" }}
+                  onClick={() => {
+                    navigate(`/detail/${el.id}`);
+                  }}>
+                  by {el.by}
+                </p>
                 <div className="carts__cart__btns n">
                   <button onClick={() => deleteProduct(el.id)}>
                     <MdDelete />

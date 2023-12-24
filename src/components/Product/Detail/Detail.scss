@@ -1,0 +1,98 @@
+#detail {
+  padding: 64px 0;
+  .detail {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    img {
+      width: 300px;
+      height: 450px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+    &__text {
+      max-width: 466px;
+      width: 100%;
+      &__icon {
+        display: flex;
+        gap: 16px;
+        h1 {
+          color: var(--Text-color, #19272e);
+          font-size: 18px;
+          font-weight: 700;
+          line-height: 21.6px;
+          max-width: 300px;
+          width: 100%;
+        }
+      }
+      h3 {
+        color: var(--Text-color, #19272e);
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 22.4px;
+        opacity: 0.7;
+        margin-top: 8px;
+      }
+      h4 {
+        color: var(--Text-color, #19272e);
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 25.2px;
+        max-width: 350px;
+        width: 100%;
+        margin: 32px 0;
+      }
+      h5 {
+        color: var(--Main-color, #818eea);
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 26px;
+        letter-spacing: -0.3px;
+      }
+      &__btns {
+        display: flex;
+        margin-top: 32px;
+        gap: 16px;
+        &__addToCart {
+          border-radius: 8px;
+          background: var(--Main-color, #818eea);
+          border: none;
+          color: var(--Colors-White, #fff);
+          text-align: center;
+          font-size: 16px;
+          font-weight: 600;
+          line-height: 22px;
+          letter-spacing: -0.4px;
+          height: 50px;
+          width: 80%;
+        }
+        &__count {
+          display: flex;
+          align-items: center;
+          border-radius: 8px;
+          border: 1px solid var(--Main-color, #818eea);
+          padding: 0 10px;
+          justify-content: space-between;
+          max-width: 100px;
+          width: 100%;
+          button {
+            background: none;
+            border: none;
+          }
+          p {
+            color: var(--Primary, #0d0d0d);
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 26px; 
+            letter-spacing: 2px;
+          }
+          svg{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+        }
+      }
+    }
+  }
+}

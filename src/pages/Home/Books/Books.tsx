@@ -9,11 +9,17 @@ import { MdDelete } from "react-icons/md";
 import { RiEditFill } from "react-icons/ri";
 import { deleteProduct } from "../../../helpers/help";
 import { useNavigate } from "react-router-dom";
+import {
+  ProductContextType,
+  useProductContext,
+} from "./../../../context/ProductContext";
 
 const Books = () => {
   const { product } = useSelector((s: RootState) => s);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  // const { getOneProduct }: ProductContextType = useProductContext();
 
   async function getProduct() {
     try {
@@ -24,11 +30,7 @@ const Books = () => {
     }
   }
 
-  useEffect(() => {
-    getProduct();
-  }, []);
-
-  async function getOneProduct(id: number) {
+  async function getOneProduct(id: number): Promise<void> {
     try {
       let res = await axios(`${API}/${id}`);
       dispatch({ type: actionType.GET_ONE_PRODUCT, payload: res });
@@ -36,6 +38,10 @@ const Books = () => {
       console.log("getOneProductError");
     }
   }
+
+  useEffect(() => {
+    getProduct();
+  }, []);
 
   return (
     <section id="books">
@@ -52,10 +58,11 @@ const Books = () => {
           ? product.map((el) => (
               <div
                 onClick={() => {
+                  navigate(`/detail/${el.id}`);
                   getOneProduct(el.id);
-                  navigate(`/detail/${el.id}`)
                 }}
-                className="carts__cart">
+                className="carts__cart"
+              >
                 <div className="carts__cart__img">
                   <img src={el.image} alt="Product Image" />
                 </div>

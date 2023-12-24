@@ -27,13 +27,13 @@ const Inputs: React.FC = () => {
     if (e.target.name === "price") {
       let obj: myObj = {
         ...product,
-        [e.target.name]: Number(e.target.value),
+        [e.target.name]: Number(e.target.value.trim()),
       };
       setProduct(obj);
     } else {
       let obj = {
         ...product,
-        [e.target.name]: e.target.value,
+        [e.target.name]: e.target.value.trim(),
       };
       setProduct(obj);
     }
@@ -103,7 +103,8 @@ const Inputs: React.FC = () => {
         onClick={() => {
           createProduct(product);
           setProduct(init);
-        }}>
+        }}
+      >
         Create
       </button>
     </div>

@@ -8,7 +8,7 @@ import { useParams } from "react-router-dom";
 const ADD_PRODUCT = "ADD_PRODUCT";
 const GET_ONE_PRODUCT = "GET_ONE_PRODUCT";
 
-type myProduct = {
+export type myProduct = {
   image: string;
   title: string;
   by: string;
@@ -54,6 +54,7 @@ const reducer = (state = INIT_STATE, action: MyAction): typeof INIT_STATE => {
 export interface ProductContextInterfase {
   getOneProduct?: (id: number) => void;
   deleteProduct?: (id: number) => void;
+  createProduct?: any;
   getProduct: any;
   product: myProduct[];
   oneProduct: myProduct | null;
@@ -73,7 +74,7 @@ export const useProductContext = () => {
   return context;
 };
 
-type ProductContextProviderProps = {
+export type ProductContextProviderProps = {
   children: ReactNode;
 };
 
@@ -82,6 +83,14 @@ const ProductContext: React.FC<ProductContextProviderProps> = ({
 }) => {
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
   // const { id } = useParams();
+
+  async function createProduct(newProduct: myProduct) {
+    try {
+      await axios.post(API, newProduct);
+    } catch (error) {
+      console.log("createError");
+    }
+  }
 
   async function getProduct() {
     try {
@@ -113,6 +122,7 @@ const ProductContext: React.FC<ProductContextProviderProps> = ({
     getOneProduct,
     getProduct,
     deleteProduct,
+    createProduct,
     product: state.product,
     oneProduct: state.oneProduct,
   };

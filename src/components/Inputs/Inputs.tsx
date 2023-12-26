@@ -1,6 +1,8 @@
-import React, { ChangeEvent, useEffect, useState } from "react";
-import axios from "axios";
-import { API } from "../../Api";
+import React, { ChangeEvent, useState } from "react";
+import {
+  ProductContextInterfase,
+  useProductContext,
+} from "./../../context/ProductContext";
 
 interface myObj {
   image: string;
@@ -22,6 +24,7 @@ const init: myObj = {
 
 const Inputs: React.FC = () => {
   const [product, setProduct] = useState(init);
+  const { createProduct }: ProductContextInterfase | any = useProductContext();
 
   function handleInp(e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) {
     if (e.target.name === "price") {
@@ -36,14 +39,6 @@ const Inputs: React.FC = () => {
         [e.target.name]: e.target.value.trim(),
       };
       setProduct(obj);
-    }
-  }
-
-  async function createProduct(newProduct: myObj) {
-    try {
-      await axios.post(API, newProduct);
-    } catch (error) {
-      console.log("createError");
     }
   }
 

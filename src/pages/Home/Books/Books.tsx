@@ -7,7 +7,7 @@ import {
   useProductContext,
 } from "../../../context/ProductContext";
 
-const Books = () => {
+const Books: React.FC = () => {
   const navigate = useNavigate();
 
   const { getProduct, deleteProduct, product }: ProductContextInterfase | any =
@@ -30,7 +30,7 @@ const Books = () => {
       <div className="carts">
         {product
           ? product.map((el: any) => (
-              <div className="carts__cart">
+              <div key={el.id} className="carts__cart">
                 <div className="carts__cart__img">
                   <img
                     onClick={() => {
@@ -43,14 +43,16 @@ const Books = () => {
                 <h1
                   onClick={() => {
                     navigate(`/detail/${el.id}`);
-                  }}>
+                  }}
+                >
                   {el.title}
                 </h1>
                 <p
                   style={{ display: el.by ? "" : "none" }}
                   onClick={() => {
                     navigate(`/detail/${el.id}`);
-                  }}>
+                  }}
+                >
                   by {el.by}
                 </p>
                 <div className="carts__cart__btns n">

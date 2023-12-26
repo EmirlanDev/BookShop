@@ -1,10 +1,19 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+// import {
+//   BasketContextInterface,
+//   useBasketContext,
+// } from "../../context/BasketContext";
 
 const Header = () => {
+  // const { getToCart, basket }: BasketContextInterface | any =
+  //   useBasketContext();
   const [search, setSearch] = useState<boolean>(false);
   const navigate = useNavigate();
-  let num = 1;
+
+  // useEffect(() => {
+  //   getToCart();
+  // }, []);
 
   return (
     <header>
@@ -45,7 +54,10 @@ const Header = () => {
                 fill="#19272E"
               />
             </svg>
-            <div className="header__btns__basket">
+            <div
+              onClick={() => navigate("/basket")}
+              className="header__btns__basket"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -58,7 +70,9 @@ const Header = () => {
                   fill="#19272E"
                 />
               </svg>
-              <p style={{ display: num ? "" : "none" }}>{num}</p>
+              {/* <p style={{ display: basket.length > 0 ? "" : "none" }}>
+                {basket.length > 0 ? basket.length : null}
+              </p> */}
             </div>
             <button>Sign In</button>
             <p

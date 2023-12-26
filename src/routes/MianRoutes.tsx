@@ -3,12 +3,14 @@ import { Route, Routes } from "react-router-dom";
 import AddProduct from "../components/Product/AddProduct";
 import AllBooks from "../pages/AllBooks/AllBooks";
 import Detail from "../components/Product/Detail/Detail";
+import Basket from "./../components/Basket/Basket";
 
 const MianRoutes = () => {
   const PUBLIC = [
     { link: "/", element: <Home />, id: 1 },
     { link: "/add", element: <AddProduct />, id: 2 },
     { link: "/detail/:id", element: <Detail />, id: 3 },
+    { link: "/basket", element: <Basket />, id: 4 },
   ];
 
   const ADMIN = [{ link: "/allBooks", element: <AllBooks />, id: 1 }];

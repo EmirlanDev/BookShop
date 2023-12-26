@@ -97,37 +97,30 @@
   }
   .loading {
     display: flex;
-    width: 100vw;
     height: 70vh;
     justify-content: center;
     align-items: center;
-
     .pl {
       width: 6em;
       height: 6em;
-    }
-
-    .pl__ring {
-      animation: ringA 2s linear infinite;
-    }
-
-    .pl__ring--a {
-      stroke: #818eea;
-    }
-
-    .pl__ring--b {
-      animation-name: ringB;
-      stroke: #818deaaf;
-    }
-
-    .pl__ring--c {
-      animation-name: ringC;
-      stroke: #818deaaf;
-    }
-
-    .pl__ring--d {
-      animation-name: ringD;
-      stroke: #818eea;
+      &__ring {
+        animation: ringA 2s linear infinite;
+        &--a {
+          stroke: #818eea;
+        }
+        &--b {
+          animation-name: ringB;
+          stroke: #818deaaf;
+        }
+        &--c {
+          animation-name: ringC;
+          stroke: #818deaaf;
+        }
+        &--d {
+          animation-name: ringD;
+          stroke: #818eea;
+        }
+      }
     }
 
     @keyframes ringA {

@@ -19,10 +19,12 @@ const Detail: React.FC = () => {
 
   const [count, setCount] = useState<number | any>(1);
 
+  let s = +`${Math.floor(Math.random()*9)}000`  
+
   useEffect(() => {
     setTimeout(() => {
       getOneProduct(id);
-    }, 2000);
+    }, s);
   });
 
   return (
@@ -64,7 +66,7 @@ const Detail: React.FC = () => {
               <h4>
                 {oneProduct ? oneProduct.description.slice(0, 150) : null}
               </h4>
-              <h5>${oneProduct ? oneProduct.price : null}</h5>
+              <h5>${oneProduct ? oneProduct.price * count : null}</h5>
               <div className="detail__text__btns">
                 <button
                   onClick={() => addToCart(count)}
@@ -74,7 +76,7 @@ const Detail: React.FC = () => {
                 </button>
                 <div className="detail__text__btns__count">
                   <button
-                    onClick={() => (count > 0 ? setCount(count - 1) : count)}
+                    onClick={() => (count > 1 ? setCount(count - 1) : count)}
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"

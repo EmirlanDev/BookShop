@@ -1,19 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-// import {
-//   BasketContextInterface,
-//   useBasketContext,
-// } from "../../context/BasketContext";
 
 const Header = () => {
-  // const { getToCart, basket }: BasketContextInterface | any =
-  //   useBasketContext();
   const [search, setSearch] = useState<boolean>(false);
   const navigate = useNavigate();
-
-  // useEffect(() => {
-  //   getToCart();
-  // }, []);
+  const num = 1;
 
   return (
     <header>
@@ -32,13 +23,8 @@ const Header = () => {
           </div>
           <div className="header__btns">
             <input
-              style={{
-                width: search ? "" : "0",
-                padding: search ? "" : "0",
-                border: search ? "1px solid #818eea" : "none",
-                right: search ? "" : "201.68px",
-              }}
-              type="text"
+              className={search ? "true" : "false"}
+              type="search"
               placeholder="Search..."
             />
             <svg
@@ -70,9 +56,9 @@ const Header = () => {
                   fill="#19272E"
                 />
               </svg>
-              {/* <p style={{ display: basket.length > 0 ? "" : "none" }}>
-                {basket.length > 0 ? basket.length : null}
-              </p> */}
+              <span style={{ display: num > 0 ? "" : "none" }}>
+                {num > 0 ? num : null}
+              </span>
             </div>
             <button>Sign In</button>
             <p

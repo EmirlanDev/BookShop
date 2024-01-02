@@ -1,4 +1,5 @@
 import React, { ChangeEvent, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   ProductContextInterfase,
   useProductContext,
@@ -25,18 +26,19 @@ const init: myObj = {
 const Inputs: React.FC = () => {
   const [product, setProduct] = useState(init);
   const { createProduct }: ProductContextInterfase | any = useProductContext();
+  const navigate = useNavigate();
 
   function handleInp(e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) {
     if (e.target.name === "price") {
       let obj: myObj = {
         ...product,
-        [e.target.name]: Number(e.target.value.trim()),
+        [e.target.name]: Number(e.target.value),
       };
       setProduct(obj);
     } else {
       let obj = {
         ...product,
-        [e.target.name]: e.target.value.trim(),
+        [e.target.name]: e.target.value,
       };
       setProduct(obj);
     }
@@ -98,6 +100,7 @@ const Inputs: React.FC = () => {
         onClick={() => {
           createProduct(product);
           setProduct(init);
+          navigate("/");
         }}
       >
         Create

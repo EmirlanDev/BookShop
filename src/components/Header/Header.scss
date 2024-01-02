@@ -50,6 +50,15 @@ header {
         border-radius: 10px;
         transition: 0.8s;
       }
+      .true {
+        border: 1px solid #818eea;
+      }
+      .false {
+        width: 0;
+        padding: 0;
+        border: none;
+        right: 201.68px;
+      }
       svg {
         background: #fff;
         z-index: 1;
@@ -64,7 +73,7 @@ header {
         gap: 4px;
         align-items: center;
         position: relative;
-        p {
+        span {
           position: absolute;
           width: 22px;
           height: 22px;
@@ -93,6 +102,38 @@ header {
         align-items: center;
         justify-content: center;
         cursor: pointer;
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  header {
+    .header {
+      height: 56px;
+      &__navBar {
+        nav {
+          display: none;
+        }
+      }
+      &__btns {
+        button {
+          display: none;
+        }
+        p {
+          display: none;
+        }
+        input {
+          right: 13px;
+          top: 48px;
+          width: 416%;
+          transition: 0.2s;
+        }
+        .false {
+          right: 41.72px;
+          width: 355%;
+          height: 0;
+        }
       }
     }
   }

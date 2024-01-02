@@ -4,6 +4,16 @@ import {
   useProductContext,
 } from "./ProductContext";
 
+interface myObj {
+  image: string;
+  title: string;
+  by: string;
+  price: any;
+  genres: string;
+  description: string;
+  id: number;
+}
+
 //!redux
 
 const BASKET_CART = "BASKET_CART";
@@ -35,6 +45,7 @@ const reducer = (state = INIT_STATE, action: addBasket) => {
 export interface BasketContextInterface {
   addToCart: (count: number) => void;
   getToCart: any;
+  checkToCart: boolean;
 }
 
 const basketContext = createContext({});
@@ -74,9 +85,28 @@ const BasketContext: React.FC<ProductContextProviderProps> = ({ children }) => {
     dispatch({ type: BASKET_CART, payload: data });
   }
 
+  function checkToCart(id: number) {
+    const storage = localStorage.getItem("book");
+    let data = [];
+
+    if (storage !== null) {
+      try {
+        data = JSON.parse(storage);
+      } catch (error) {
+        console.log("StorageBookError");
+      }
+    }
+
+    if (data) {
+      let cart = data.find((el: myObj) => el.id === id);
+      return cart ? true : false;
+    }
+  }
+
   const values = {
     addToCart,
     getToCart,
+    checkToCart,
     basket: state.basket,
   };
   return (

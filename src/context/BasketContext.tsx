@@ -103,10 +103,28 @@ const BasketContext: React.FC<ProductContextProviderProps> = ({ children }) => {
     }
   }
 
+  function removeToCart(id: number) {
+    const storage = localStorage.getItem("book");
+    let data = [];
+
+    if (storage !== null) {
+      try {
+        data = JSON.parse(storage);
+      } catch (error) {
+        console.log("StorageBookError");
+      }
+    }
+
+    data = data.filter((el: myObj) => el.id !== id);
+    localStorage.setItem("book", JSON.stringify(data));
+    getToCart()
+  }
+
   const values = {
     addToCart,
     getToCart,
     checkToCart,
+    removeToCart,
     basket: state.basket,
   };
   return (

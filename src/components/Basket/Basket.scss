@@ -1,0 +1,91 @@
+#basket {
+  padding: 32px 0 65px 0;
+  .bt {
+    color: var(--Text-color, #19272e);
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 44px;
+    letter-spacing: -1.5px;
+  }
+  .bp {
+    color: var(--Text-color, #19272e);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+    letter-spacing: -0.2px;
+    margin: 8px 0 40px 0;
+    span {
+      color: var(--Main-color, #818eea);
+      cursor: pointer;
+    }
+  }
+  .basket {
+    display: flex;
+    &__carts {
+      height: 803px;
+      overflow-y: scroll;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+      &__cart {
+        display: flex;
+        border-bottom: 1px solid rgba(25, 39, 46, 0.3);
+        padding-bottom: 32px;
+        margin-bottom: 24px;
+        gap: 32px;
+        img {
+          width: 150px;
+          height: 225px;
+          border-radius: 8px;
+          object-fit: cover;
+          cursor: pointer;
+        }
+        &__text {
+          padding: 6px 5px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          h3 {
+            color: var(--Text-color, #19272e);
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 19.2px;
+            width: 285px;
+            text-transform: uppercase;
+          }
+          h4 {
+            color: var(--Text-color, #19272e);
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 18.2px;
+            opacity: 0.7;
+            margin-top: 16px;
+          }
+          h5 {
+            color: var(--Text-color, #19272e);
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 22.4px;
+          }
+          h6 {
+            color: var(--Main-color, #818eea);
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 25.2px;
+            margin-top: 8px;
+          }
+        }
+        p {
+          color: #f00;
+          font-size: 14px;
+          font-weight: 700;
+          line-height: 20px; 
+          letter-spacing: -0.4px;
+          text-decoration-line: underline;
+          cursor: pointer;
+          height: 20px;
+        }
+      }
+    }
+  }
+}
